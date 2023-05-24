@@ -48,5 +48,44 @@ module load faFilter
 faFilter -minSize=500 assemblies.okay.cds assemblies_500bp.cds
 ```
 
+# Extras:
+## super transcripts:
+In case you are interested in the idea of supertranscripts, Trinity includes scripts do that and take the output of the normal assembly pipeline [here](https://github.com/trinityrnaseq/trinityrnaseq/wiki/SuperTranscripts)
+
+## Genome-Guided Transcriptome Assembly
+Genome-Guided assemblies are normally limited by the quality of the genome, so if a good genome is available, it is worth trying. 
+The first step is to align the male reads to the genome using tophat after indexing the genome using Bowtie2:
+```
+module load tophat
+module load bowtie2/2.4.4
+
+srun bowtie2-build Artemia_sinica_genome_29_12_2021.fasta genome_w
+
+tophat -p 40 \
+    -o tophat_all \
+    genome_w \
+ 398_1.fastq \
+ 398_2.fastq
+
+```
+The bam file from tophat is sorted using samtools and then used as input to Trinity:
+```
+module load java
+
+module load samtools/1.10
+
+module load jellyfish/2.3.0
+
+module load bowtie2/2.4.4
+
+module load python/3.8.5
+
+module load salmon/0.13.1
+
+samtools sort ~/tophat_all/accepted_hits.bam -o rnaseq.coordSorted.bam
+
+~/Trinity/trinityrnaseq-v2.11.0/Trinity --genome_guided_bam rnaseq.coordSorted.bam --genome_guided_max_intron 10000 --max_memory 99G --CPU 20
+```
+
 
 
