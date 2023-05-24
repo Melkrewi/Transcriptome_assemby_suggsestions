@@ -24,7 +24,7 @@ This keeps the longest isoform per gene. It works only for trinity as it uses th
 perl ~/Trinity/trinityrnaseq-v2.11.0/util/misc/get_longest_isoform_seq_per_trinity_gene.pl Trinity.fasta > Trinity_longest.fasta
 ```
 ## Evigene:
-[description here](http://arthropods.eugenes.org/EvidentialGene/trassembly.html)
+[Description here](http://arthropods.eugenes.org/EvidentialGene/trassembly.html)
 But the main thing it does is in this direct quote from the same page: "EvidentialGene tr2aacds.pl is my new, "easy to use" pipeline script for processing large piles of transcript assemblies, from several methods such as Velvet/O, Trinity, Soap, .., into the most biologically useful "best" set of mRNA, classified into primary and alternate transcripts."
 You can use it on multiple assemblies or just one. The output files will have .okay.xxx (.okay.cds for instance) as an extension.  
 ```
@@ -54,7 +54,7 @@ In case you are interested in the idea of supertranscripts, Trinity includes scr
 
 ## Genome-Guided Transcriptome Assembly
 Genome-Guided assemblies are normally limited by the quality of the genome, so if a good genome is available, it is worth trying. 
-The first step is to align the male reads to the genome using tophat after indexing the genome using Bowtie2:
+The first step is to align the reads to the genome using tophat after indexing the genome using Bowtie2:
 ```
 module load tophat
 module load bowtie2/2.4.4
