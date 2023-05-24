@@ -24,7 +24,7 @@ This keeps the longest isoform per gene. It works only for trinity as it uses th
 perl ~/Trinity/trinityrnaseq-v2.11.0/util/misc/get_longest_isoform_seq_per_trinity_gene.pl Trinity.fasta > Trinity_longest.fasta
 ```
 ## Evigene:
-[describtion here](http://arthropods.eugenes.org/EvidentialGene/trassembly.html)
+[description here](http://arthropods.eugenes.org/EvidentialGene/trassembly.html)
 But the main thing it does is in this direct quote from the same page: "EvidentialGene tr2aacds.pl is my new, "easy to use" pipeline script for processing large piles of transcript assemblies, from several methods such as Velvet/O, Trinity, Soap, .., into the most biologically useful "best" set of mRNA, classified into primary and alternate transcripts."
 You can use it on multiple assemblies or just one. The output files will have .okay.xxx (.okay.cds for instance) as an extension.  
 ```
