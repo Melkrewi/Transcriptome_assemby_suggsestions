@@ -37,7 +37,7 @@ module load exonerate
 module load cdhit
 
 cat Assembly_1.fasta Assembly_2.fasta > assemblies.fasta
-perl /nfs/scistore03/vicosgrp/melkrewi/genome_assembly_december_2021/774.genome_guided_transcriptome_assembly/evigene/scripts/prot/tr2aacds.pl -cdnaseq assemblies.fasta
+perl /nfs/scistore18/vicosgrp/melkrewi/genome_assembly_december_2021/774.genome_guided_transcriptome_assembly/evigene/scripts/prot/tr2aacds.pl -cdnaseq assemblies.fasta
 ```
 ## Filtering based on length using faFilter:
 
